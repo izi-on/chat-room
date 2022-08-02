@@ -12,14 +12,15 @@ function App() {
   const {user, authIsReady} = useAuthContext()
 
   return (
-      <div className="App">
-        {authIsReady && (
-          <>
-            <Navbar />
-            <Chat />
-          </>
-        )}
-      </div>
+        <div className="App">
+          {authIsReady && (
+            <>
+              <Navbar />
+              <Chat />
+            </>
+          )}
+        </div>
+      
   );
 }
 
