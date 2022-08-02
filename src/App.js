@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { signInWithGoogle } from './firebase/firebase'
+import React from 'react';
+import { useAuthContext } from './hooks/useAuthContext'
+import { BrowserRouter, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { Switch } from 'react-router-dom';
+import Chat from './components/Chat'
 
 function App() {
+
+  const {user, authIsReady} = useAuthContext()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        {authIsReady && (
+          <>
+            <Navbar />
+            <Chat />
+          </>
+        )}
+      </div>
   );
 }
 
