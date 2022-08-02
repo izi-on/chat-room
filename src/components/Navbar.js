@@ -9,10 +9,13 @@ export default function Navbar() {
 
 
   return (
-    <ul>
-        <label>Izi's Chat Room</label>
-        {user && <li disabled>Hello, {user.displayName}</li>}
-        {!user && <li></li>}
-    </ul>
+    <div className="navbar">
+        <nav>
+            <h1>Izi's Chat Room</h1>
+            {user && <h2>Hello, {user.displayName}</h2>}
+            {!user && <button>Sign in with Google</button>}
+        </nav>
+    </div>
+    
   )
 }
