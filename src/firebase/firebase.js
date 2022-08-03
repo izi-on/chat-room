@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app'
 import firebase from 'firebase/app'
-import { getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth"
+import { getAuth, GoogleAuthProvider} from "firebase/auth"
+import { useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const firebaseConfig = {
     apiKey: "AIzaSyB6LcgpDnH9iZlrkr3afJvlkXM3Bl_Fmck",
@@ -14,13 +16,16 @@ const firebaseConfig = {
 //google auth
 const app = initializeApp(firebaseConfig)
 export const projectAuth = getAuth(app)
+export const provider = new GoogleAuthProvider()
 
-const provider = new GoogleAuthProvider()
+/*
+export const SignInWithGoogle = () => {
 
-export const signInWithGoogle = () => {
-     signInWithPopup(projectAuth, provider).then((result) => {
+    signInWithPopup(projectAuth, provider).then((result) => {
         console.log(result)
      }).catch((error) => {
         console.log(error)
      })
+
 }
+*/
