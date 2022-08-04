@@ -1,0 +1,33 @@
+
+.text-box {
+    background: rgb(199, 199, 199);
+    color: #333;
+    padding: 5%;
+    height: 500px;
+    max-height: 50%;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30%;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow-y: scroll;
+
+}
+
+.text-bubble {
+    display: inline-block;
+    color: white;
+    background: rgb(136, 136, 136);
+    border-radius: 5px;
+    height: 30px;
+}
+
+.text-bubble .other {
+    text-align: left;
+}
+
+.text-bubble .user {
+    text-align: right
+}
