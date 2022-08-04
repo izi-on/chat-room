@@ -17,7 +17,8 @@
 }
 
 .text-bubble {
-    display: inline-block;
+    display: inline;
+    vertical-align: middle;
     color: white;
     background: rgb(136, 136, 136);
     border-radius: 5px;

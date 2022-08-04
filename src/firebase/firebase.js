@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import firebase from 'firebase/app'
 import { getAuth, GoogleAuthProvider} from "firebase/auth"
+import {getFirestore} from 'firebase/firestore'
 import { useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -18,14 +19,5 @@ const app = initializeApp(firebaseConfig)
 export const projectAuth = getAuth(app)
 export const provider = new GoogleAuthProvider()
 
-/*
-export const SignInWithGoogle = () => {
-
-    signInWithPopup(projectAuth, provider).then((result) => {
-        console.log(result)
-     }).catch((error) => {
-        console.log(error)
-     })
-
-}
-*/
+//firestore 
+export const projectFirestore = getFirestore(app)
