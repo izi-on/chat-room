@@ -2,8 +2,9 @@ import './Chat.css'
 import { useAuthContext } from '../hooks/useAuthContext'
 import MessageBox from './MessageBox'
 import { useEffect, useState } from 'react'
-import { addDoc, collection, getDocs, onSnapshot } from 'firebase/firestore'
-import { projectFirestore } from '../firebase/firebase'
+import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestamp} from 'firebase/firestore'
+import { projectFirestore} from '../firebase/firebase'
+
 
 export default function Chat() {
 
@@ -14,7 +15,8 @@ export default function Chat() {
   //real time update of data
   useEffect(() => {
     const collectionRef = collection(projectFirestore, 'messages')
-    const unsub = onSnapshot(collectionRef, response => {
+    const q = query(collectionRef, orderBy('time'))
+    const unsub = onSnapshot(q, response => {
         const results = response.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
@@ -35,6 +37,7 @@ export default function Chat() {
       message: curMsg, 
       userDisplayName: user.displayName, 
       userUid: user.uid,
+      time: serverTimestamp()
     }).then(reponse => {
       console.log(reponse)
     }).catch(error => {
