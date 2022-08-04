@@ -37,7 +37,8 @@ export default function Chat() {
       message: curMsg, 
       userDisplayName: user.displayName, 
       userUid: user.uid,
-      time: serverTimestamp()
+      time: serverTimestamp(),
+      pfp: user.photoURL
     }).then(reponse => {
       console.log(reponse)
     }).catch(error => {

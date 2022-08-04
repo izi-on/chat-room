@@ -1,9 +1,11 @@
 import './MessageBox.css'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useEffect, useRef } from 'react'
 
 export default function MessageBox({messages}) {
 
     const {user} = useAuthContext()
+    const bottomRef = useRef(null)
 
     //checks if the message was written by the currently logged in user
     const checkTextAlignIfUser = (userUid) => {
@@ -13,17 +15,24 @@ export default function MessageBox({messages}) {
         }
         return false
     }
-
+    
+    useEffect(() => {
+        // 👇️ scroll to bottom every time messages change
+        bottomRef.current?.scrollIntoView({behavior: 'smooth'});
+    }, [messages]);
 
   return (
     <div className="text-box">
         {messages && messages.map((message) => (
-            <div className="text-bubble" key={message.id}>
-                <p className={checkTextAlignIfUser(message.userUid)? "user":"other"}>
+            <div className={"text-bubble-"+(checkTextAlignIfUser(message.userUid)?"user":"other")} key={message.id}>
+                {!checkTextAlignIfUser(message.userUid) && <img src={message.pfp} alt="display image"/>}
+                <p>
                     {message.message}
                 </p>
+                {checkTextAlignIfUser(message.userUid) && <img src={message.pfp} alt="display image"/>}
             </div>
         ))}
+        <div ref={bottomRef}></div>
     </div>
   )
 }

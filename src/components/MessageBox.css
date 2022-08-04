@@ -1,34 +1,57 @@
 
 .text-box {
+    position: relative;
     background: rgb(199, 199, 199);
     color: #333;
-    padding: 5%;
     height: 500px;
     max-height: 50%;
     border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 30%;
+    max-width: 45%;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     position: relative;
     overflow-y: scroll;
+    bottom:0;
+    display: flex;
+    flex-direction: column;
 
 }
 
-.text-bubble {
-    display: inline;
-    vertical-align: middle;
-    color: white;
-    background: rgb(136, 136, 136);
-    border-radius: 5px;
-    height: 30px;
-}
-
-.text-bubble .other {
+.text-bubble-other {
+    
+    width: 300px;
+    margin: 50px auto;
+    background: #00bfb6;
+    padding: 5px;
     text-align: left;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position:relative;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: ease-in 0.2s;
 }
 
-.text-bubble .user {
-    text-align: right
+.text-bubble-user {
+    width: 300px;
+    margin: 50px auto;
+    background: #00bfb6;
+    padding: 5px;
+    text-align: right;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position:relative;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+img {
+    border-radius: 5px;
+    display: inline-block;
+    width: 10%;
+    height: 10%;
 }
