@@ -24,7 +24,7 @@ export default function MessageBox({messages}) {
   return (
     <div className="text-box">
         {messages && messages.map((message) => (
-            <div className = {"text-comp"+(checkTextAlignIfUser(message.userUid)?" user":"")}>
+            <div key={message.id} className = {"text-comp"+(checkTextAlignIfUser(message.userUid)?" user":"")}>
 
                 {!checkTextAlignIfUser(message.userUid) && <img src={message.pfp} alt="display image"/>}
                 
