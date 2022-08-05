@@ -11,7 +11,7 @@ export default function Chat() {
   const {user} = useAuthContext() //user
   const [messages, setMessages] = useState(null) //handle messages in text box
   const [curMsg, setCurMsg] = useState('')
-
+  
   //real time update of data
   useEffect(() => {
     const collectionRef = collection(projectFirestore, 'messages')
@@ -49,6 +49,7 @@ export default function Chat() {
 
   return (
     <div className="chat-popup">
+
       <MessageBox messages={messages}/>
 
       {/*For typing the message and sending it*/}
@@ -56,7 +57,7 @@ export default function Chat() {
 
         <label><b>Message</b></label>
         {user && <textarea 
-          placeholder="Type message.." 
+          placeholder="Type message..." 
           className="msg"
           onChange={e => setCurMsg(e.target.value)}
           value={curMsg}
