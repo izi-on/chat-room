@@ -24,12 +24,18 @@ export default function MessageBox({messages}) {
   return (
     <div className="text-box">
         {messages && messages.map((message) => (
-            <div className={"text-bubble-"+(checkTextAlignIfUser(message.userUid)?"user":"other")} key={message.id}>
+            <div className = {"text-comp"+(checkTextAlignIfUser(message.userUid)?" user":"")}>
+
                 {!checkTextAlignIfUser(message.userUid) && <img src={message.pfp} alt="display image"/>}
-                <p>
+                
+                <div className="text-bubble" key={message.id}>
+                    
                     {message.message}
-                </p>
+                    
+                </div>
+
                 {checkTextAlignIfUser(message.userUid) && <img src={message.pfp} alt="display image"/>}
+
             </div>
         ))}
         <div ref={bottomRef}></div>

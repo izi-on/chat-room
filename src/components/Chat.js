@@ -49,8 +49,6 @@ export default function Chat() {
 
   return (
     <div className="chat-popup">
-      <h1>Chat</h1>
-
       <MessageBox messages={messages}/>
 
       {/*For typing the message and sending it*/}
@@ -61,9 +59,12 @@ export default function Chat() {
           placeholder="Type message.." 
           className="msg"
           onChange={e => setCurMsg(e.target.value)}
-          value={curMsg}> 
+          value={curMsg}
+          maxLength='300'
+        > 
+
         </textarea>}
-        {!user && <textarea disabled placeholder="Type message.." className="msg"></textarea>}
+        {!user && <textarea disabled placeholder="Login to type message.." className="msg"></textarea>}
 
         {user && <button type="submit" className="btn" onClick={handleSubmit}>Send</button>}
         {!user && <button disabled className="btn-disabled" >Log in to send a message</button>}
